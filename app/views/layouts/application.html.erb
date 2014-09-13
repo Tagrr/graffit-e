@@ -1,7 +1,17 @@
 <!DOCTYPE html>
 <html>
+
+
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+  <link rel="stylesheet" href="main.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
   <title>GraffitE</title>
+
+<Link rel = "stylesheet" href = "// railsgirls.com/assets/bootstrap.css"> 
+<link rel = "stylesheet" href = "// railsgirls.com/assets/bootstrap-theme.css">
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -9,7 +19,24 @@
 </head>
 <body>
 
+  <nav>
+    <%= link_to "Mur", "wall" %>
+    <%= link_to "Create Wall", "createwall" %>
+    <%= link_to "My Walls", "history" %>
+    <a href="#menu" class="fa fa-bars fa-2x"></a>
+  </nav>
+  <div class="action">
+    des action
+  </div>
+
+
 <%= yield %>
+
+ <script>
+    document.querySelector('.fa-bars').addEventListener('click', function () {
+      document.querySelector('.action').classList.toggle('show');
+    });
+  </script>
 
 </body>
 </html>
