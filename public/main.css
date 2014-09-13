@@ -1,0 +1,42 @@
+body {margin: 0}
+
+nav {
+  width: 100%;
+	background-color: blue;
+	height: 3em;
+	text-align: center;
+  color: white;
+}
+
+nav a {
+  width: 25%;
+  float: left;
+  height: 100%;
+  text-align: center;
+  line-height: 3em;
+}
+
+nav a.fa-bars {
+  margin-top: 8px;
+}
+
+nav a, nav a:active {
+  text-decoration: none;
+  color: white
+}
+
+div.action {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  width: 80%;
+  background: blue;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+  height: 400px;
+  padding: 5%;
+}
+div.action.show {
+  top:3em;
+  left:10%;
+
