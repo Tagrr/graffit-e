@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   devise_for :users
   resources :walls
 
-  get "createwall" =>'pages#createwall'
+  get "createwall" =>'walls#createwall'
 
-  get "history" =>'pages#history'
+  get "history" =>'walls#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
-  root 'pages#wall'
+  root 'walls#wall'
 
 
   # Example of regular route:

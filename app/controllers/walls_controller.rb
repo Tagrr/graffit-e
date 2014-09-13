@@ -7,6 +7,10 @@ class WallsController < ApplicationController
     @walls = Wall.all
   end
 
+  def wall
+    @wall = Wall.last
+  end
+
   # GET /walls/1
   # GET /walls/1.json
   def show
