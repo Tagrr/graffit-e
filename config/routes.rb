@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   get "createwall" =>'pages#createwall'
 
-  get "history" =>'pages#history'
+  get "history" =>'walls#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
