@@ -14,10 +14,13 @@
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
 </head>
+
+
+
 <body>
 
   <nav>
-    <%= link_to "Wall", "wall" %>
+    <%= link_to "Wall", "/" %>
     <%= link_to "Create graffiti", "createwall" %>
     <%= link_to "My Walls", "history" %>
     <a href="#menu" class="fa fa-bars fa-2x"></a>
@@ -25,7 +28,6 @@
   <div class="action">
     des action
   </div>
-
 
 <%= yield %>
 
@@ -36,4 +38,5 @@
   </script>
 
 </body>
+
 </html>

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  resources :walls
+
   get "createwall" =>'pages#createwall'
 
   get "history" =>'pages#history'
