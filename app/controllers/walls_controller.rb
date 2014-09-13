@@ -1,5 +1,6 @@
 class WallsController < ApplicationController
   before_action :set_wall, only: [:edit, :update, :destroy]
+  skip_before_filter :verify_authenticity_token, :only => [:createGraph]
 
   # GET /walls
   # GET /walls.json
@@ -47,6 +48,22 @@ class WallsController < ApplicationController
     end
   end
 
+  def createGraph
+    @graph = Graph.new(graph_params)
+    @wall = Wall.find_by name: params[:id]
+    throw Error.new "no wall found for #{params[:id]}." if @wall.nil?
+    @graph.wall = @wall
+
+    respond_to do |format|
+      if @graph.save
+        format.json { render json: @wall.graphs }
+      else
+        format.html { render :new }
+        format.json { render json: @wall.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # PATCH/PUT /walls/1
   # PATCH/PUT /walls/1.json
   def update
@@ -80,5 +97,10 @@ class WallsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def wall_params
       params.require(:wall).permit(:name, :description, :background)
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def graph_params
+      params.require(:graph).permit(:text, :img)
     end
 end

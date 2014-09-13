@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140913143629) do
+ActiveRecord::Schema.define(version: 20140913182700) do
+
+  create_table "graphs", force: true do |t|
+    t.text     "text"
+    t.string   "img"
+    t.string   "cls"
+    t.string   "style"
+    t.integer  "wall_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "graphs", ["wall_id"], name: "index_graphs_on_wall_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

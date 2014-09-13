@@ -1,13 +1,5 @@
 body {margin: 0}
 
-nav {
-  width: 100%;
-	background-color: #57B1E0;
-	height: 6em;
-	text-align: center;
-  color: white;
-  float:right;
-}
 
 div.header {
   float: left;
@@ -16,7 +8,16 @@ div.header {
   height: 6em;
 }
 
-nav a {
+nav.header {
+  width: 100%;
+	background-color: #57B1E0;
+	height: 6em;
+	text-align: center;
+  color: white;
+  float:right;
+}
+
+nav.header a {
   width: 25%;
   float: left;
   height: 100%;
@@ -25,11 +26,11 @@ nav a {
 
 }
 
-nav a.fa-bars {
+nav.header a.fa-bars {
   margin-top: 8px;
 }
 
-nav a, nav a:active {
+nav.header a, nav.header a:active {
   text-decoration: none;
   color: white
 }
@@ -48,4 +49,42 @@ div.action {
 div.action.show {
   top:3em;
   left:10%;
+}
+
+nav.creategraph {
+  position: fixed;
+  height: 40px;
+  bottom: 0;
+	background-color: #57B1E0;
+  width: 100%;
+  overflow: hidden;
+}
+
+nav.creategraph.show {
+  height: 400px;
+  overflow: scroll;
+}
+
+nav.creategraph div{
+  text-align: center;
+  float: left;
+  width: 32%;
+  cursor: pointer;
+}
+
+nav.creategraph .sticker{
+  width: 100%;
+  display: none;
+}
+
+nav.creategraph.show .sticker{
+  display: block;
+}
+
+nav.creategraph img{
+  width: 40%;
+  margin: 5%;
+  float:left;
+}
+
 

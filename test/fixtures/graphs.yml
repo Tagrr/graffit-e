@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  text: MyText
+  img: MyString
+  cls: MyString
+  style: MyString
+  wall_id: 
+
+two:
+  text: MyText
+  img: MyString
+  cls: MyString
+  style: MyString
+  wall_id: 

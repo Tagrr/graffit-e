@@ -14,6 +14,24 @@
   <strong>Background:</strong>
   <%= @wall.background %>
 </p>
+<% @wall.graphs.each do |graph| %>
+<div>
+  <% if graph.img %>
+    <img src="<%= graph.img %>">
+  <% end %>
+  <% if graph.text %>
+    <p><%= graph.text %></p>
+  <% end %>
+</div>
+<% end %>
 
-<%= link_to 'Edit', edit_wall_path(@wall) %> |
-<%= link_to 'Back', walls_path %>
+<nav class="creategraph">
+  <div onclick="wallEdit()">Edit</div>
+  <div onclick="createGraph()">Graph</div>
+  <div onclick="createSticker()">Sticker</div>
+  <div class="sticker">
+    <img onclick="insertSticker(this)" src="/sticker/head.jpeg" />
+    <img onclick="insertSticker(this)" src="/sticker/in.jpeg" />
+    <img onclick="insertSticker(this)" src="/sticker/p.png" />
+  </div>
+</nav>
