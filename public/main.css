@@ -11,10 +11,10 @@ div.header {
 nav.header {
   width: 100%;
 	background-color: #57B1E0;
-	height: 6em;
 	text-align: center;
   color: white;
-  float:right;
+  line-height: 6em;
+  height: 6em;
 }
 
 nav.header a {
@@ -22,15 +22,17 @@ nav.header a {
   float: left;
   height: 100%;
   text-align: center;
-  line-height: 6em;
-
+  line-height: 3em;
 }
 
 nav.header a.fa-bars {
-  margin-top: 8px;
+}
+nav.header a:hover {
+  background-color: #47A1D0;
 }
 
 nav.header a, nav.header a:active {
+  background-color: #57B1E0;
   text-decoration: none;
   color: white
 }
@@ -40,14 +42,14 @@ div.action {
   top: -9999px;
   left: -9999px;
   width: 80%;
-  background: blue;
+  background: #57B1E0;
   color: white;
   text-shadow: 1px 1px 1px black;
   height: 400px;
   padding: 5%;
 }
 div.action.show {
-  top:3em;
+  top:6em;
   left:10%;
 }
 
@@ -62,29 +64,34 @@ nav.creategraph {
 
 nav.creategraph.show {
   height: 400px;
-  overflow: scroll;
 }
 
-nav.creategraph div{
+nav.creategraph div.bottom-menu{
   text-align: center;
   float: left;
   width: 32%;
   cursor: pointer;
+  height: 6em;
+  line-height: 3em;
+
 }
 
 nav.creategraph .sticker{
   width: 100%;
   display: none;
+  height: 320px;
 }
 
 nav.creategraph.show .sticker{
   display: block;
+  overflow: scroll;
 }
 
 nav.creategraph img{
-  width: 40%;
+  width: 20%;
   margin: 5%;
   float:left;
+  cursor: pointer;
 }
 
 
