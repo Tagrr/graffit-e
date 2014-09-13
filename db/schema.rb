@@ -11,13 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140913111903) do
-
-  create_table "graffitis", force: true do |t|
-    t.string   "tag"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 20140913143629) do
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -43,6 +37,9 @@ ActiveRecord::Schema.define(version: 20140913111903) do
     t.string   "background"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "walls", ["user_id"], name: "index_walls_on_user_id"
 
 end
