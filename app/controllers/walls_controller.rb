@@ -4,7 +4,11 @@ class WallsController < ApplicationController
   # GET /walls
   # GET /walls.json
   def index
-    @walls = Wall.all
+    if user_signed_in?
+      @walls = Wall.where user_id: current_user.id
+    else
+      @walls = Wall.where user_id: nil
+    end
   end
 
   def wall
