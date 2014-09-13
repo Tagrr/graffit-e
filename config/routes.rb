@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  devise_for :users
   resources :walls
 
   get "createwall" =>'pages#createwall'
