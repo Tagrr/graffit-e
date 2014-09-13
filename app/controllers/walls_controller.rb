@@ -1,5 +1,5 @@
 class WallsController < ApplicationController
-  before_action :set_wall, only: [:show, :edit, :update, :destroy]
+  before_action :set_wall, only: [:edit, :update, :destroy]
 
   # GET /walls
   # GET /walls.json
@@ -18,6 +18,7 @@ class WallsController < ApplicationController
   # GET /walls/1
   # GET /walls/1.json
   def show
+    @wall = Wall.find_by name: params[:id]
   end
 
   # GET /walls/new

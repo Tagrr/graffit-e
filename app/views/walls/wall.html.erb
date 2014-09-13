@@ -3,6 +3,8 @@
 <% if @wall.nil? %>
  	<%= link_to "Create my first wall","/walls/new"%>
 <% else %>
-	<%= @wall.description %>
+  <div>
 	<%= @wall.user.email unless @wall.user.nil?%>
+  <a href="/walls/<%= @wall.name %>" ><%= @wall.description %></a>
+  </div>
 <% end %>
