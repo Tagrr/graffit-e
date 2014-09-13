@@ -4,5 +4,5 @@
  	<%= link_to "Create my first wall","/walls/new"%>
 <% else %>
 	<%= @wall.description %>
-	<%= @wall.user.email %>
+	<%= @wall.user.email unless @wall.user.nil?%>
 <% end %>
