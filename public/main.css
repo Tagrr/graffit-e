@@ -2,10 +2,18 @@ body {margin: 0}
 
 nav {
   width: 100%;
-	background-color: blue;
-	height: 3em;
+	background-color: #57B1E0;
+	height: 6em;
 	text-align: center;
   color: white;
+  float:right;
+}
+
+div.header {
+  float: left;
+  width:75%;
+  background-color:#88708b;
+  height: 6em;
 }
 
 nav a {
@@ -13,7 +21,8 @@ nav a {
   float: left;
   height: 100%;
   text-align: center;
-  line-height: 3em;
+  line-height: 6em;
+
 }
 
 nav a.fa-bars {
