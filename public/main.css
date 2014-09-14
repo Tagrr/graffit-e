@@ -129,6 +129,7 @@ nav.creategraph div.bottom-menu{
   width: 32%;
   cursor: pointer;
   line-height: 3em;
+  padding-top: 10px;
 }
 
 nav.creategraph img{
