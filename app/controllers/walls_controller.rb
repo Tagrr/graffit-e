@@ -1,6 +1,6 @@
 class WallsController < ApplicationController
   before_action :set_wall, only: [:edit, :update, :destroy]
-  skip_before_filter :verify_authenticity_token, :only => [:createGraph]
+  skip_before_filter :verify_authenticity_token, :only => [:createGraph, :destroyGraph]
 
   # GET /walls
   # GET /walls.json
@@ -61,6 +61,18 @@ class WallsController < ApplicationController
         format.html { render :new }
         format.json { render json: @wall.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def destroyGraph
+    @graph = Graph.find(params[:graph_id])
+    throw "no graph found for #{params[:graph_id]}." if @graph.nil?
+
+    @graph.destroy
+
+    respond_to do |format|
+      format.html { redirect_to walls_url, notice: 'Wall was successfully destroyed.' }
+      format.json { head :no_content }
     end
   end
 

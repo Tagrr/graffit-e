@@ -33,7 +33,7 @@ nav.header a.fa-bars {
 }
 
 nav.header a:hover {
-  background-color: inherit;;
+  background-color: inherit;
 }
 
 nav.header a.fa-bars, nav.header a.fa-bars:hover, nav.header a.fa-bars:active {
@@ -96,6 +96,10 @@ nav.creategraph img{
   width: 20%;
   margin: 5%;
   cursor: pointer;
+}
+
+#graphs .graph {
+  position: absolute;
 }
 
 

@@ -13,16 +13,19 @@
   <strong>Background:</strong>
   <%= @wall.background %>
 </p>
-<% @wall.graphs.each do |graph| %>
-<div>
-  <% if graph.img %>
-    <img src="<%= graph.img %>">
-  <% end %>
-  <% if graph.text %>
-    <p><%= graph.text %></p>
+<div id="info">info to come ...</div>
+<div id="graphs">
+  <% @wall.graphs.each do |graph| %>
+    <div class="graph" draggable="true" id="<%= graph.id %>">
+    <% if graph.img %>
+      <img src="<%= graph.img %>">
+    <% end %>
+    <% if graph.text %>
+      <p><%= graph.text %></p>
+    <% end %>
+  </div>
   <% end %>
 </div>
-<% end %>
 
 <nav class="creategraph">
   <div class="bottom-menu" onclick="wallEdit()"><img src="/picto_mur.png" ></div>
