@@ -15,10 +15,33 @@ function showForm (cls) {
 
 }
 
+function updateStickers(callback) {
+  $.get(
+    location.pathname + '/showGraphs', 
+    function (graphs) {
+      if (!currentTouch) {
+        graphs.forEach(function (graph) {
+          var $g = $('#'+graph.id);
+          if ($g.length) {
+            $g.attr('style', graph.style);
+          } else {
+            $g = $('<div>').addClass('graph').attr('id', graph.id).attr('style', graph.style).append('<img src="' + graph.img + '" >');
+            $('#graphs').append($g);
+          }
+        });
+      }
+      if (callback) callback();
+    },
+    'json');
+}
+
 function insertSticker (img) {
   $.post(
     location.pathname + '/createGraph', 
     {"graph":{"img": img.getAttribute('src')}},
+    function () {
+      updateStickers();
+    },
     'json'
   );
 }
@@ -63,7 +86,7 @@ function destroySticker (graph) {
     document.body.removeEventListener('touchmove', preventDefault, false);
   }
 
-  var currentTouch;
+  currentTouch = null;
   graphs.delegate('.graph', 'touchstart', function (event) {
     event.currentTarget.style.setProperty('z-index', 10);
     currentTouch = event.currentTarget;
@@ -75,7 +98,7 @@ function destroySticker (graph) {
 
     var tt = event.originalEvent.touches[0];
     // -50 to set the image in the middle of the cursor
-    t.style.setProperty('top', (window.pageYOffset + tt.clientY - 50) + 'px');
+    t.style.setProperty('top', (window.pageYOffset + tt.clientY - 60) + 'px');
     t.style.setProperty('left', (window.pageXOffset + tt.clientX  - 50)+ 'px');
   });
 
@@ -87,7 +110,6 @@ function destroySticker (graph) {
     var
     t = currentTouch,
     top = parseInt(t.style.getPropertyValue('top'), 10);
-
 
     //event.currentTarget.style.setProperty('z-index', 0);
     t.style.removeProperty('z-index');

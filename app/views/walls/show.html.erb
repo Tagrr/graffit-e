@@ -1,6 +1,6 @@
 <div id="graphs">
-  <% @wall.graphs.each do |graph| %>
-    <div class="graph" draggable="true" id="<%= graph.id %>" style="<%= graph.style %>">
+  <% if @wall.graphs && @wall.graphs.size > 0 then @wall.graphs.each do |graph| %>
+    <div class="graph" id="<%= graph.id %>" style="<%= graph.style %>">
     <% if graph.img %>
       <img src="<%= graph.img %>">
     <% end %>
@@ -8,13 +8,14 @@
       <p><%= graph.text %></p>
     <% end %>
   </div>
-  <% end %>
+  <% end
+  end %>
 </div>
 
 <nav class="creategraph">
   <div class="bottom-menu" onclick="showForm('wall')"><img src="/picto_mur.png" ></div>
-  <div class="bottom-menu" onclick="showForm('graph')"><img src="/picto_tag.png" ></div>
-  <div class="bottom-menu" onclick="showForm('sticker')"><img src="/picto_sticker.png" ></div>
+  <div class="bottom-menu" onclick="showForm('graph')"><img src="/picto_tag.jpg" ></div>
+  <div class="bottom-menu" onclick="showForm('sticker')"><img src="/picto_sticker.jpg" ></div>
   <div class="form wall">
     <img onclick="insertSticker(this)" src="/sticker/Sticker_01.png" />
     <img onclick="insertSticker(this)" src="/sticker/Sticker_02.png" />
@@ -60,3 +61,11 @@
     <img onclick="insertSticker(this)" src="/sticker/Sticker_24.png" />
   </div>
 </nav>
+<script>
+    function syncUpdates () {
+      updateStickers(function () {
+        setTimeout(syncUpdates, 300);
+      });
+    }
+    setTimeout(syncUpdates, 1000);
+</script>
