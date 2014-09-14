@@ -1,4 +1,4 @@
-body {margin: 0}
+body {margin: 0;height: 1200px;}
 
 
 div.header {
@@ -74,6 +74,8 @@ nav.creategraph div.form {
 nav.creategraph div.form.show {
   height: 400px;
   display: block;
+  overflow-y: scroll;
+  width: 100%;
 }
 
 nav.creategraph div.bottom-menu{
@@ -92,6 +94,15 @@ nav.creategraph img{
 
 #graphs .graph {
   position: absolute;
+  opacity: 0.7;
 }
 
+#graphs {
+  background: url('/walltexture/wallbriqueur.jpg') repeat center !important;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background-size: cointain;
+    background-repeat: no-repeat;
+}
 
