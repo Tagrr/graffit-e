@@ -4,23 +4,14 @@ function getCurrentWallName () {
 
 }
 
-function wallEdit () {
-  var name = getCurrentWallName();
-  document.querySelector('.creategraph').classList.toggle('show');
+function showForm (cls) {
+  var show = document.querySelector('nav.creategraph div.form.show');
+  if (show) {
+    show.classList.toggle('show');
+    if (show.classList.contains(cls)) return;
+  }
 
-
-}
-
-function createGraph () {
-  var name = getCurrentWallName();
-  document.querySelector('.creategraph').classList.toggle('show');
-
-
-}
-
-function createSticker () {
-  var name = getCurrentWallName();
-  document.querySelector('.creategraph').classList.toggle('show');
+  document.querySelector('nav.creategraph div.form.' + cls).classList.toggle('show');
 
 }
 

@@ -60,15 +60,20 @@ div.action.show {
 
 nav.creategraph {
   position: fixed;
-  height: 40px;
   bottom: 0;
 	background-color: rgba(87, 177, 224, 0.7);
   width: 100%;
   overflow: hidden;
 }
 
-nav.creategraph.show {
+nav.creategraph div.form {
+  height: 0;
+  display: none;
+}
+
+nav.creategraph div.form.show {
   height: 400px;
+  display: block;
 }
 
 nav.creategraph div.bottom-menu{
@@ -76,20 +81,7 @@ nav.creategraph div.bottom-menu{
   float: left;
   width: 32%;
   cursor: pointer;
-  height: 6em;
   line-height: 3em;
-
-}
-
-nav.creategraph .sticker{
-  width: 100%;
-  display: none;
-  height: 320px;
-}
-
-nav.creategraph.show .sticker{
-  display: block;
-  overflow: scroll;
 }
 
 nav.creategraph img{

@@ -12,10 +12,20 @@
 </div>
 
 <nav class="creategraph">
-  <div class="bottom-menu" onclick="wallEdit()"><img src="/picto_mur.png" ></div>
-  <div class="bottom-menu" onclick="createGraph()"><img src="/picto_tag.png" ></div>
-  <div class="bottom-menu" onclick="createSticker()"><img src="/picto_sticker.png" ></div>
-  <div class="sticker">
+  <div class="bottom-menu" onclick="showForm('wall')"><img src="/picto_mur.png" ></div>
+  <div class="bottom-menu" onclick="showForm('graph')"><img src="/picto_tag.png" ></div>
+  <div class="bottom-menu" onclick="showForm('sticker')"><img src="/picto_sticker.png" ></div>
+  <div class="form wall">
+    <img onclick="insertSticker(this)" src="/sticker/Sticker_01.png" />
+    <img onclick="insertSticker(this)" src="/sticker/Sticker_02.png" />
+    <img onclick="insertSticker(this)" src="/sticker/Sticker_03.png" />
+  </div>
+  <div class="form graph">
+    <img onclick="insertSticker(this)" src="/sticker/Sticker_04.png" />
+    <img onclick="insertSticker(this)" src="/sticker/Sticker_08.png" />
+    <img onclick="insertSticker(this)" src="/sticker/Sticker_09.png" />
+  </div>
+  <div class="form sticker">
     <img onclick="insertSticker(this)" src="/sticker/Sticker_01.png" />
     <img onclick="insertSticker(this)" src="/sticker/Sticker_02.png" />
     <img onclick="insertSticker(this)" src="/sticker/Sticker_03.png" />
