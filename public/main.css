@@ -1,10 +1,4 @@
-<<<<<<< Updated upstream
 body {margin: 0;height: 1200px;}
-=======
-body {margin: 0;}
-
-
->>>>>>> Stashed changes
 
 div.footerwall{
   float: left;
@@ -23,8 +17,8 @@ text-shadow: 1px 1px 3px black;
 font-weight: bold;
 }
 
-.createwall:hover{
-background:none;
+.createwall:hover {
+  background:none;
 }
 
 div.header {
