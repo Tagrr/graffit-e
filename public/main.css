@@ -1,4 +1,10 @@
+<<<<<<< Updated upstream
 body {margin: 0;height: 1200px;}
+=======
+body {margin: 0;}
+
+
+>>>>>>> Stashed changes
 
 div.footerwall{
   float: left;
@@ -28,6 +34,8 @@ div.header {
   height: 6em;
 }
 
+
+
 .creationmur{
   margin: 0 auto;
   width:400px;
@@ -41,7 +49,15 @@ h1{
 margin-bottom:100px;
 }
 
+div.lunetxt{
+ background:url("lune.jpg");
 
+}
+
+img.lune{
+ width:250px;
+ height:350px;
+}
 
 div.header img.logo{
   margin: 1em 0 0 1em;
