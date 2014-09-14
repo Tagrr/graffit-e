@@ -1,22 +1,6 @@
-
-<p>
-  <strong>Name:</strong>
-  <%= @wall.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @wall.description %>
-</p>
-
-<p>
-  <strong>Background:</strong>
-  <%= @wall.background %>
-</p>
-<div id="info">info to come ...</div>
 <div id="graphs">
   <% @wall.graphs.each do |graph| %>
-    <div class="graph" draggable="true" id="<%= graph.id %>">
+    <div class="graph" draggable="true" id="<%= graph.id %>" style="<%= graph.style %>">
     <% if graph.img %>
       <img src="<%= graph.img %>">
     <% end %>

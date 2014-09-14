@@ -24,27 +24,28 @@ function createSticker () {
 
 }
 
-function insertStickerCallback () {
-  console.log('insertStickerCallback', this, arguments);
-}
-
 function insertSticker (img) {
-  console.log(location, 'url', location.pathname + '/createGraph');
   $.post(
     location.pathname + '/createGraph', 
     {"graph":{"img": img.getAttribute('src')}},
-     function () {console.log('ajax callback', arguments);},
     'json'
   );
 }
 
+function updateSticker (graph) {
+  $.ajax({
+    method: 'PUT',
+    url: location.pathname + '/updateGraph/' + graph.id,
+    data: {"graph":{"style": graph.style.cssText}},
+    dataType: 'json'
+  });
+
+}
 function destroySticker (graph) {
-  console.log('destroy path', location.pathname + '/destroyGraph/' + graph.id);
   $.ajax({
     method: 'DELETE',
     url: location.pathname + '/destroyGraph/' + graph.id,
     success: function () {
-      console.log('destroyGraph successed', graph);
       graph.parentNode.removeChild(graph);
     },
     dataType: 'json'
@@ -73,7 +74,6 @@ function destroySticker (graph) {
 
   var currentTouch;
   graphs.delegate('.graph', 'touchstart', function (event) {
-    document.querySelector('#info').textContent = 'touchstart' + (i++);
     event.currentTarget.style.setProperty('z-index', 10);
     currentTouch = event.currentTarget;
   });
@@ -83,7 +83,6 @@ function destroySticker (graph) {
     event.preventDefault();
 
     var tt = event.originalEvent.touches[0];
-    document.querySelector('#info').textContent = 'touchmove' + (j++);
     // -50 to set the image in the middle of the cursor
     t.style.setProperty('top', (window.pageYOffset + tt.clientY - 50) + 'px');
     t.style.setProperty('left', (window.pageXOffset + tt.clientX  - 50)+ 'px');
@@ -98,7 +97,6 @@ function destroySticker (graph) {
     t = currentTouch,
     top = parseInt(t.style.getPropertyValue('top'), 10);
 
-    document.querySelector('#info').textContent = 'touchend' + (k++);
 
     //event.currentTarget.style.setProperty('z-index', 0);
     t.style.removeProperty('z-index');
@@ -106,6 +104,8 @@ function destroySticker (graph) {
     // check if touchend in remove zone.
     if (isOverRemove(top)) {
       destroySticker(t);
+    } else {
+      updateSticker(t);
     }
     currentTouch = null;
   });

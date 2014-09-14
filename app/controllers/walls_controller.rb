@@ -1,6 +1,7 @@
 class WallsController < ApplicationController
   before_action :set_wall, only: [:edit, :update, :destroy]
-  skip_before_filter :verify_authenticity_token, :only => [:createGraph, :destroyGraph]
+  # TODO send the authenticity token instead of skip it
+  skip_before_filter :verify_authenticity_token, :only => [:createGraph, :destroyGraph, :updateGraph]
 
   # GET /walls
   # GET /walls.json
@@ -64,6 +65,19 @@ class WallsController < ApplicationController
     end
   end
 
+  def updateGraph
+    @graph = Graph.find(params[:graph_id])
+
+    respond_to do |format|
+      if @graph.update(graph_params)
+        format.json { render json: @graph }
+      else
+        format.html { render :new }
+        format.json { render json: @wall.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def destroyGraph
     @graph = Graph.find(params[:graph_id])
     throw "no graph found for #{params[:graph_id]}." if @graph.nil?
@@ -113,6 +127,6 @@ class WallsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def graph_params
-      params.require(:graph).permit(:text, :img)
+      params.require(:graph).permit(:text, :img, :style)
     end
 end
