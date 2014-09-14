@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post "walls/:id/createGraph" => "walls#createGraph"
   delete "walls/:id/destroyGraph/:graph_id" => "walls#destroyGraph"
   put "walls/:id/updateGraph/:graph_id" => "walls#updateGraph"
+  get "walls/:id/showGraphs" =>'walls#showGraphs'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

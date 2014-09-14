@@ -23,6 +23,14 @@ class WallsController < ApplicationController
     @wall = Wall.find_by name: params[:id]
   end
 
+  def showGraphs
+    @wall = Wall.find_by name: params[:id]
+    respond_to do |format|
+      format.json { render json: @wall.graphs }
+    end
+
+  end
+
   # GET /walls/new
   def new
     @wall = Wall.new

@@ -15,10 +15,31 @@ function showForm (cls) {
 
 }
 
+function updateStickers(callback) {
+  $.get(
+    location.pathname + '/showGraphs', 
+    function (graphs) {
+      graphs.forEach(function (graph) {
+        var $g = $('#'+graph.id);
+        if ($g.length) {
+          $g.attr('style', graph.style);
+        } else {
+          $g = $('<div>').addClass('graph').attr('id', graph.id).attr('style', graph.style).append('<img src="' + graph.img + '" >');
+          $('#graphs').append($g);
+        }
+      });
+      if (callback) callback();
+    },
+    'json');
+}
+
 function insertSticker (img) {
   $.post(
     location.pathname + '/createGraph', 
     {"graph":{"img": img.getAttribute('src')}},
+    function () {
+      updateStickers();
+    },
     'json'
   );
 }
