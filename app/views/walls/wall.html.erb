@@ -1,10 +1,12 @@
 <h1>Wall</h1>
-<p>Voici le mur principal. Soyons créagraffistes !</p>
-<% if @wall.nil? %>
- 	<%= link_to "Create my first wall","/walls/new"%>
-<% else %>
+
+
   <div>
-	<%= @wall.user.email unless @wall.user.nil?%>
-  <a href="/walls/<%= @wall.name %>" ><%= @wall.description %></a>
+	<%= link_to image_tag("/mur.jpg", :class=>"creationmur"),"/walls/new",:class=> "createwall"%>
   </div>
-<% end %>
+
+
+
+<footer>
+<div class="footerwall"></div>
+</footer>

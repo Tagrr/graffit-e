@@ -1,5 +1,25 @@
 body {margin: 0}
 
+div.footerwall{
+  float: left;
+  width:100%;
+  background-color:#88708b;
+  height: 6em;
+  position: absolute; bottom: 0;
+}
+
+.createwall{
+position: fixed;
+text-align: center;
+width: 100%;
+font-size: 27px;
+text-shadow: 1px 1px 3px black;
+font-weight: bold;
+}
+
+.createwall:hover{
+background:none;
+}
 
 div.header {
   float: left;
@@ -7,6 +27,21 @@ div.header {
   background-color:#88708b;
   height: 6em;
 }
+
+.creationmur{
+  margin: 0 auto;
+  width:400px;
+  height:400px;
+  display:block;
+}
+
+h1{
+ text-align:center;
+ text-transform:uppercase;
+margin-bottom:100px;
+}
+
+
 
 div.header img.logo{
   margin: 1em 0 0 1em;
@@ -42,6 +77,10 @@ nav.header a.fa-bars, nav.header a.fa-bars:hover, nav.header a.fa-bars:active {
   color: white
 }
 
+div.liencreermur{
+  margin-top:600px;
+}
+
 div.action {
   position: absolute;
   top: -9999px;
@@ -74,6 +113,12 @@ nav.creategraph div.form {
 nav.creategraph div.form.show {
   height: 400px;
   display: block;
+}
+
+a{
+ text-decoration:none;
+
+
 }
 
 nav.creategraph div.bottom-menu{
